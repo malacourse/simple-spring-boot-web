@@ -27,9 +27,11 @@ node('maven') {
   String pomFileLocation = env.BUILD_CONTEXT_DIR ? "${env.BUILD_CONTEXT_DIR}/pom.xml" : "pom.xml"
 
   stage('SCM Checkout') {
+    
+    println("PARAM: ${params.GIT_REPO}");
 
-    checkout scm
-    sh "orig=\$(pwd); cd \$(dirname ${pomFileLocation}); git describe --tags; cd \$orig"
+    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: ${params.GIT_REP}]]])
+    sh "ls -lrt"
   }
 
   }
