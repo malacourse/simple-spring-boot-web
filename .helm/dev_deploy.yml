@@ -5,7 +5,7 @@
 replicaCount: 2
 
 image:
-  repository: repo-nexus.apps.mikes.sandbox1072.opentlc.com/tssc/spring-boot-web:latest
+  repository: repo-nexus.apps.demo.att.mikelacourseocp.com/tssc/spring-boot-web:latest
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
